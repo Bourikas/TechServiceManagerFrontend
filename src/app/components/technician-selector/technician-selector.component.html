@@ -1,0 +1,11 @@
+<mat-form-field>
+    <mat-label>Search Technicians</mat-label>
+    <input matInput [formControl]="searchControl">
+  </mat-form-field>
+  
+  <div *ngFor="let technician of filteredTechnicians" (click)="selectTechnician(technician)">
+    {{ technician.last_name }} {{ technician.first_name }}
+  </div>
+  
+  <button mat-flat-button color="primary" (click)="openAddTechnicianDialog()">Add New Technician</button>
+  

@@ -1,0 +1,29 @@
+<!-- device-update.component.html -->
+
+<h4>Update Device</h4>
+<form [formGroup]="form" class="d-flex flex-column" (ngSubmit)="onSubmit()">
+  
+  <mat-form-field>
+    <mat-label>Device Type</mat-label>
+    <input matInput formControlName="device_type">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Serial Number</mat-label>
+    <input matInput formControlName="serial_number">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Model Type</mat-label>
+    <input matInput formControlName="model_type">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Owner</mat-label>
+    <input matInput formControlName="owner">
+  </mat-form-field>
+
+  <!-- Add other form fields as necessary  -->
+
+  <button mat-flat-button color="primary" type="submit" [disabled]="form.invalid">Update</button>
+</form>

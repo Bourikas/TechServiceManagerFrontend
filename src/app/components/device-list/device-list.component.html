@@ -1,0 +1,46 @@
+<div>
+    <h2>Devices</h2>
+    <mat-form-field appearance="fill">
+      <mat-label>Search</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Search devices">
+    </mat-form-field>
+    
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+  
+      <!-- Device Type Column -->
+      <ng-container matColumnDef="device_type">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Device Type</th>
+        <td mat-cell *matCellDef="let device">{{ device.device_type }}</td>
+      </ng-container>
+  
+      <!-- Serial Number Column -->
+      <ng-container matColumnDef="serial_number">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Serial Number</th>
+        <td mat-cell *matCellDef="let device">{{ device.serial_number }}</td>
+      </ng-container>
+  
+      <!-- Model Type Column -->
+      <ng-container matColumnDef="model_type">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Model Type</th>
+        <td mat-cell *matCellDef="let device">{{ device.model_type }}</td>
+      </ng-container>
+  
+      <!-- Owner Column -->
+      <ng-container matColumnDef="owner">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Owner</th>
+        <td mat-cell *matCellDef="let device">{{ device.owner_details.last_name }} {{ device.owner_details.first_name }}</td>
+      </ng-container>
+  
+      <!-- Edit Column -->
+      <ng-container matColumnDef="edit">
+        <th mat-header-cell *matHeaderCellDef> Edit </th>
+        <td mat-cell *matCellDef="let device">
+          <button mat-flat-button color="primary" (click)="onEdit(device.id)">Edit</button>
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+  

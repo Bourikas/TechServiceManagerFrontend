@@ -1,0 +1,24 @@
+<h4>Add New Device</h4>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <mat-label>Device Type</mat-label>
+    <input matInput formControlName="device_type">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Model Type</mat-label>
+    <input matInput formControlName="model_type">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Serial Number</mat-label>
+    <input matInput formControlName="serial_number">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Owner</mat-label>
+    <input matInput formControlName="owner">
+  </mat-form-field>
+
+  <button mat-flat-button color="primary" type="submit" [disabled]="form.invalid">Add Device</button>
+</form>

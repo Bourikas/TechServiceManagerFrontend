@@ -1,0 +1,56 @@
+<h4>Technicians Form</h4>
+
+<form [formGroup]="form"   class="d-flex flex-column">
+    <mat-form-field>
+        <mat-label>First Name</mat-label>
+        <input matInput type="text" formControlName="first_name"/>
+            @if (form.get('first_name').invalid && form.get("first_name").touched) {
+                <mat-error>
+                    First Name is Required
+                </mat-error>
+            }
+           
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Last Name</mat-label>
+        <input matInput type="text" formControlName="last_name"/>
+            @if (form.get('last_name').invalid && form.get("last_name").touched) {
+                <mat-error>
+                    Last Name is Required
+                </mat-error>
+            }
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput type="email" formControlName="email"/>
+        @if (form.get('email').invalid && form.get("email").touched) {
+            <mat-error>
+                Please enter a valid email address
+            </mat-error>
+        }
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input matInput type="password" formControlName="password"/>
+           
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Password Confirmation</mat-label>
+        <input matInput type="password" formControlName="password_confirm"/>
+           
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Bio</mat-label>
+        <input matInput type="text" formControlName="bio"/>
+           
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Shop</mat-label>
+        <input matInput type="text" formControlName="shop"/>
+           
+    </mat-form-field>
+
+    <button mat-flat-button color="primary" [disabled]="form.invalid" (click)="onSubmit()">
+        Submit
+    </button>
+</form>

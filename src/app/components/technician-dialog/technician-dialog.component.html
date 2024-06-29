@@ -1,0 +1,16 @@
+<h4>Add New Technician</h4>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <mat-label>First Name</mat-label>
+    <input matInput formControlName="first_name">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Last Name</mat-label>
+    <input matInput formControlName="last_name">
+  </mat-form-field>
+
+  <!-- Add more form fields as necessary -->
+
+  <button mat-flat-button color="primary" type="submit" [disabled]="form.invalid">Add Technician</button>
+</form>

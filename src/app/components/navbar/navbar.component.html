@@ -1,0 +1,19 @@
+<nav class="navbar navbar-dark bg-primary justify-content-between">
+  <a role="button" class="navbar-brand ms-3" routerLink="">
+    Service Manager
+  </a>
+
+  <ng-container *ngIf="user() as loggedInUser; else notLoggedIn">
+    <span class="me-3 d-flex gap-2 text-light" >
+      Welcome, {{ loggedInUser.username }}
+      <mat-icon role="button" (click)="logout()">logout</mat-icon>
+    </span>
+  </ng-container>
+
+  <ng-template #notLoggedIn>
+    <span class="text-light me-3 d-flex gap-2 align-items-center" routerLink="user-login">
+      Login
+      <mat-icon role="button" class="icon-link-hover" routerLink="user-login">login</mat-icon>
+    </span>
+  </ng-template>
+</nav>

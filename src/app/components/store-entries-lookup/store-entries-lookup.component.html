@@ -1,0 +1,52 @@
+<h4>Service Lookup</h4>
+
+<form
+  [formGroup]="form"
+  (ngSubmit)="onSubmit()"
+  class="d-flex flex-column gap-3 w-50">
+  <div class="form-group">
+    <label for="phone_number">Your phone number:</label>
+    <input
+      type="text"
+      id="phone_number"
+      class="form-control"
+      formControlName="phone_number" />
+  </div>
+  <div class="form-group">
+    <label for="serial_number">Your device serial number:</label>
+    <input
+      type="text"
+      id="serial_number"
+      class="form-control"
+      formControlName="serial_number" />
+  </div>
+  <button
+    type="submit"
+    class="btn btn-primary"
+    [disabled]="!form.valid">
+    Lookup
+  </button>
+  @if (invalidLookup) {
+    <div class="alert alert-danger">
+      <strong>Error:</strong>
+      Invalid phone number and/or serial number. Please check your input. 
+    </div>
+  }
+  @if (lookupResult){
+    <h3>Lookup Results</h3>
+    <table class="table">
+     
+      <tbody>
+        <tr><th>Malfunction</th><td>{{ lookupResult.malfunction_description }}</td></tr>
+        <tr><th>Entry Date</th><td>{{ lookupResult.entry_date  }}</td></tr>
+        <tr><th>Inspection Date</th><td>{{ lookupResult.inspection_date }}</td></tr>
+        <tr><th>Repair Date</th><td>{{ lookupResult.repair_date }}</td></tr>
+        <tr><th>Repair Description</th><td>{{ lookupResult.repair_description }}</td></tr>
+        <tr><th>Repair Cost</th><td>{{ lookupResult.repair_cost }}</td></tr>
+        <tr><th>Return Date</th><td>{{ lookupResult.return_date }}</td></tr>
+      </tbody>
+    </table>
+  }
+    
+</form>
+

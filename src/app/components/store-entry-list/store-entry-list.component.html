@@ -1,0 +1,61 @@
+<div>
+    <h2>Store Entries</h2>
+    <mat-form-field appearance="fill">
+      <mat-label>Search</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Search entries">
+    </mat-form-field>
+    
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+  
+      <!-- Device Type Column -->
+      <ng-container matColumnDef="device_type">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Device Type</th>
+        <td mat-cell *matCellDef="let entry">{{ entry.device.device_type }}</td>
+      </ng-container>
+  
+      <!-- Serial Number Column -->
+      <ng-container matColumnDef="serial_number">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Serial Number</th>
+        <td mat-cell *matCellDef="let entry">{{ entry.device.serial_number }}</td>
+      </ng-container>
+  
+      <!-- Model Type Column -->
+      <ng-container matColumnDef="model_type">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Model Type</th>
+        <td mat-cell *matCellDef="let entry">{{ entry.device.model_type }}</td>
+      </ng-container>
+  
+      <!-- Owner Last Name Column -->
+      <ng-container matColumnDef="owner_last_name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Owner Last Name</th>
+        <td mat-cell *matCellDef="let entry">{{ entry.owner.last_name }}</td>
+      </ng-container>
+  
+      <!-- Malfunction Description Column -->
+      <ng-container matColumnDef="malfunction_description">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Malfunction Description</th>
+        <td mat-cell *matCellDef="let entry">{{ entry.malfunction_description }}</td>
+      </ng-container>
+      <!-- Entry Date Column -->
+      <ng-container matColumnDef="entry_date">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Entry Date</th>
+        <td mat-cell *matCellDef="let entry">{{ entry.entry_date }}</td>
+      </ng-container>
+      <!-- Malfunction Description Column -->
+      <ng-container matColumnDef="return_date">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Return Date</th>
+        <td mat-cell *matCellDef="let entry">{{ entry.return_date }}</td>
+      </ng-container>
+      <!-- Edit Column -->
+      <ng-container matColumnDef="edit">
+        <th mat-header-cell *matHeaderCellDef> Edit </th>
+        <td mat-cell *matCellDef="let entry">
+          <button mat-flat-button color="primary"(click)="onEdit(entry.id)">Edit</button>
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+  

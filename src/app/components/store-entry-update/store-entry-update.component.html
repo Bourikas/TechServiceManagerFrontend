@@ -1,0 +1,66 @@
+
+    <h4>Update Store Entry </h4>
+    <form [formGroup]="form" class="d-flex flex-column" (ngSubmit)="onSubmit()">
+      
+    <mat-form-field>
+        <mat-label>Technician</mat-label>
+        <mat-select formControlName="technician">
+      <mat-option *ngFor="let technician of technicians" [value]="technician.id">
+        {{ technician.last_name }} {{ technician.first_name }}
+      </mat-option>
+    </mat-select>
+        <mat-error *ngIf="form.get('technician').invalid && form.get('technician').touched">
+         Technician is Required
+        </mat-error>
+    </mat-form-field>
+        <mat-form-field>
+        <mat-label>Malfunction Description</mat-label>
+        <input matInput formControlName="malfunction_description">
+      </mat-form-field>
+  
+      <mat-form-field>
+        <mat-label>Device Condition</mat-label>
+        <input matInput formControlName="device_condition">
+      </mat-form-field>
+  
+      <mat-form-field>
+        <mat-label>Inspection Date</mat-label>
+        <input matInput formControlName="inspection_date" type="date">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Repair Description</mat-label>
+        <input matInput formControlName="repair_description" type="text">
+      </mat-form-field>
+  
+      <mat-form-field>
+        <mat-label>Repair Date</mat-label>
+        <input matInput formControlName="repair_date" type="date">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Part Description</mat-label>
+        <input matInput  formControlName="part_description">
+      </mat-form-field>
+      
+      <mat-form-field>
+        <mat-label>Part Cost</mat-label>
+        <input matInput type="number" formControlName="part_cost">
+      </mat-form-field>
+      
+      <mat-form-field>
+        <mat-label>Repair Cost</mat-label>
+        <input matInput type="number" formControlName="repair_cost">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Return Date</mat-label>
+        <input matInput formControlName="return_date" type="date">
+      </mat-form-field>
+
+       <!-- Add other form fields as necessary  -->
+  
+      <button mat-flat-button color="primary" type="submit" [disabled]="form.invalid">Update</button>
+    </form>
+
+  

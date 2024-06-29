@@ -1,0 +1,11 @@
+<mat-form-field>
+    <mat-label>Search Devices</mat-label>
+    <input matInput [formControl]="searchControl">
+  </mat-form-field>
+  
+  <div *ngFor="let device of filteredDevices" (click)="selectDevice(device)">
+    {{ device.device_type }} {{ device.model_type }} {{device.owner_details.last_name}}
+  </div>
+  
+  <button mat-flat-button color="primary" (click)="openAddDeviceDialog()">Add New Device</button>
+  
